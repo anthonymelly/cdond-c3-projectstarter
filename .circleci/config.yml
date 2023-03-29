@@ -206,8 +206,8 @@ jobs:
             ansible-playbook -i inventory.txt configure-server.yml
           no_output_timeout: 30m
       # Here's where you will add some code to rollback on failure
-      - destroy-environment:
-          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}      
+      # - destroy-environment:
+      #     workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}      
 
   run-migrations:
     docker:
@@ -239,8 +239,8 @@ jobs:
                 curl --insecure https://kvdb.io/5y7rkXCT34tXCS5TYr4TAr/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             fi
      # Here's where you will add some code to rollback on failure
-      - destroy-environment:
-            workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}      
+      # - destroy-environment:
+      #       workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}      
 
   deploy-frontend:
     docker:
